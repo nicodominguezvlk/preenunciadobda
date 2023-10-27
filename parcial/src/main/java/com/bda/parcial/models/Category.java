@@ -1,22 +1,31 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
 import java.util.List;
+import lombok.*;
 
-@Entity
+@Entity(name = "Categories")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long CategoryID;
+    @Column (name = "CategoryID")
+    private long categoryId;
 
-    private String CategoryName;
+    @Column(name = "CategoryName")
+    private String categoryName;
 
-    private String Description;
+    @Column(name = "Description")
+    private String description;
 
-    private byte[] Picture;
+    @Column(name = "Picture")
+    private byte[] picture;
 
-    @OneToMany(mappedBy = "Category", fetch = FetchType.LAZY)
+    @OneToMany( fetch = FetchType.LAZY)
+    @JoinColumn(name = "CategoryID")
     private List<Product> productList;
 }

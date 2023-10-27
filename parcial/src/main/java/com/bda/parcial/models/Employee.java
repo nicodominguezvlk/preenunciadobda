@@ -1,56 +1,77 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "Employees")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long EmployeeID;
+    @Column(name = "EmployeeID")
+    private long employeeId;
 
-    private String LastName;
+    @Column(name = "LastName")
+    private String lastName;
 
-    private String FirstName;
+    @Column(name = "FirstName")
+    private String firstName;
 
-    private String Title;
+    @Column(name = "Title")
+    private String title;
 
-    private String TitleOfCourtesy;
+    @Column(name = "TitleOfCourtesy")
+    private String titleOfCourtesy;
 
-    private String BirthDate;
+    @Column(name = "BirthDate")
+    private String birthDate;
 
-    private String HireDate;
+    @Column(name = "HireDate")
+    private String hireDate;
 
-    private String Address;
+    @Column(name = "Address")
+    private String address;
 
-    private String City;
+    @Column(name = "City")
+    private String city;
 
-    private String Regions;
+    @Column(name = "Region")
+    private String region;
 
-    private String PostalCode;
+    @Column(name = "PostalCode")
+    private String postalCode;
 
-    private String Country;
+    @Column(name = "Country")
+    private String country;
 
-    private String HomePhone;
+    @Column(name = "HomePhone")
+    private String homePhone;
 
-    private String Extension;
+    @Column(name = "Extension")
+    private String extension;
 
-    private byte[] Photo;
+    @Column(name = "Photo")
+    private byte[] photo;
 
-    private String Notes;
+    @Column(name = "Notes")
+    private String notes;
 
     @ManyToOne
     @JoinColumn(name = "ReportsTo")
-    private Employee ReportsTo;
+    private Employee reportsTo;
 
-    private String PhotoPath;
+    @Column(name = "PhotoPath")
+    private String photoPath;
 
+   // @OneToMany(mappedBy = "ReportsTo", fetch = FetchType.LAZY)
+   // private List<Employee> employeeList;
 
-    @OneToMany(mappedBy = "ReportsTo", fetch = FetchType.LAZY)
-    private List<Employee> employeeList;
-
-    @OneToMany(mappedBy = "Employee", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OrderID")
     private List<Order> orderList;
 }

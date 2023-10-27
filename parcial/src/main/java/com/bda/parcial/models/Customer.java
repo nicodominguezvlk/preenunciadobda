@@ -1,37 +1,60 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "Customers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long CustomerID;
+    @Column(name = "CustomerID")
+    private String customerId;
 
-    private String CompanyName;
+    @Column(name = "CompanyName")
+    private String companyName;
 
-    private String ContactName;
+    @Column(name = "ContactName")
+    private String contactName;
 
-    private String ContactTitle;
+    @Column(name = "ContactTitle")
+    private String contactTitle;
 
-    private String Address;
+    @Column(name = "Address")
+    private String address;
 
-    private String City;
+    @Column(name = "City")
+    private String city;
 
-    private String Region;
+    @Column(name = "Region")
+    private String region;
 
-    private String PostalCode;
+    @Column(name = "PostalCode")
+    private String postalCode;
 
-    private String Country;
+    @Column(name = "Country")
+    private String country;
 
-    private String Phone;
+    @Column(name = "Phone")
+    private String phone;
 
-    private String Fax;
+    @Column(name = "Fax")
+    private String fax;
 
-
-    @OneToMany(mappedBy = "Customer", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OrderID")
     private List<Order> orderList;
+
+    @ManyToMany
+    @JoinTable(name = "CustomerCustomerDemo",
+            joinColumns = @JoinColumn(name ="CustomerID"),
+            inverseJoinColumns = @JoinColumn(name = "CustomerTypeID"))
+    private Set<CustomerDemographics> demographics;
+
 }

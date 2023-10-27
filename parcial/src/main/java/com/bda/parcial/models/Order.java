@@ -1,45 +1,62 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "Orders")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "OrderID")
     private long OrderID;
 
     @ManyToOne
     @JoinColumn(name = "CustomerID")
-    private Customer Customer;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
-    private Employee Employee;
+    private Employee employee;
 
-    private LocalDateTime OrderDate;
+    @Column(name = "OrderDate")
+    private LocalDateTime orderDate;
 
-    private LocalDateTime RequiredDate;
+    @Column(name = "RequiredDate")
+    private LocalDateTime requiredDate;
 
-    private LocalDateTime ShippedDate;
+    @Column(name = "ShippedDate")
+    private LocalDateTime shippedDate;
 
     @ManyToOne
     @JoinColumn(name = "ShipVia")
-    private Shipper ShipVia;
+    private Shipper shipVia;
 
-    private double Freight;
+    @Column(name = "Freight")
+    private double freight;
 
-    private String ShipName;
+    @Column(name = "ShipName")
+    private String shipName;
 
-    private String ShipAddress;
+    @Column(name = "ShipAddress")
+    private String shipAddress;
 
-    private String ShipCity;
+    @Column(name = "ShipCity")
+    private String shipCity;
 
-    private String ShipRegion;
+    @Column(name = "ShipRegion")
+    private String shipRegion;
 
-    private String ShipPostalCode;
+    @Column(name = "ShipPostalCode")
+    private String shipPostalCode;
 
-    private String ShipCountry;
+    @Column(name = "ShipCountry")
+    private String shipCountry;
+
+
 }

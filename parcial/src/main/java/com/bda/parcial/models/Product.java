@@ -1,33 +1,46 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-@Entity
+@Entity(name = "Products")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ProductID;
+    @Column(name = "ProductID")
+    private long productId;
 
-    private String ProductName;
+    @Column(name = "ProductName")
+    private String productName;
 
     @ManyToOne
     @JoinColumn(name = "SupplierID")
-    private Supplier Supplier;
+    private Supplier supplierId;
 
     @ManyToOne
     @JoinColumn(name = "CategoryID")
-    private Supplier Category;
+    private Supplier categoryId;
 
-    private String QuantityPerUnit;
+    @Column(name = "QuantityPerUnit")
+    private String quantityPerUnit;
 
-    private double UnitPrice;
+    @Column(name = "UnitPrice")
+    private double unitPrice;
 
-    private int UnitsInStock;
+    @Column(name = "UnitsInStock")
+    private int unitsInStock;
 
-    private int UnitsOnOrder;
+    @Column(name = "UnitsOnOrder")
+    private int unitsOnOrder;
 
-    private int ReorderLevel;
+    @Column(name = "ReorderLevel")
+    private int reorderLevel;
 
-    private String Discontinued;
+    @Column(name = "Discontinued")
+    private String discontinued;
 }

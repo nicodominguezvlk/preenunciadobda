@@ -1,38 +1,55 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.util.List;
 
 @Entity(name = "Suppliers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Supplier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long SupplierID;
+    @Column(name = "SupplierID")
+    private long supplierId;
 
-    private String CompanyName;
+    @Column(name = "CompanyName")
+    private String companyName;
 
-    private String ContactName;
+    @Column(name = "ContactName")
+    private String contactName;
 
-    private String ContactTitle;
+    @Column(name = "ContactTitle")
+    private String contactTitle;
 
-    private String Address;
+    @Column(name = "Address")
+    private String address;
 
-    private String City;
+    @Column(name = "City")
+    private String city;
 
-    private String Region;
+    @Column(name = "Region")
+    private String region;
 
-    private String PostalCode;
+    @Column(name = "PostalCode")
+    private String postalCode;
 
-    private String Country;
+    @Column(name = "Country")
+    private String country;
 
-    private String Phone;
+    @Column(name = "Phone")
+    private String phone;
 
-    private String Fax;
+    @Column(name = "Fax")
+    private String fax;
 
-    private String HomePage;
+    @Column(name = "HomePage")
+    private String homePage;
 
-    @OneToMany(mappedBy = "Supplier", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name ="ProductID")
     private List<Product> productList;
 }

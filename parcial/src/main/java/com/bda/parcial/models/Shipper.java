@@ -1,21 +1,29 @@
 package com.bda.parcial.models;
 
 import jakarta.persistence.*;
-
+import lombok.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "Shippers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Shipper {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ShipperID;
+    @Column(name = "ShipperID")
+    private long shipperId;
 
-    private String CompanyName;
+    @Column(name = "CompanyName")
+    private String companyName;
 
-    private String Phone;
+    @Column(name = "Phone")
+    private String phone;
 
 
-    @OneToMany(mappedBy = "ShipVia", fetch = FetchType.LAZY)
+    @OneToMany( fetch = FetchType.LAZY)
+    @JoinColumn(name="OrderID")
     private List<Order> orderList;
 }
