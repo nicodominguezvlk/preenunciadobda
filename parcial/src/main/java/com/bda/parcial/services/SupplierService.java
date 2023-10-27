@@ -1,4 +1,7 @@
 package com.bda.parcial.services;
 
-public interface SupplierService {
+import com.bda.parcial.models.Supplier;
+
+public interface SupplierService extends Service<Supplier, Long> {
+
 }

@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface Service <T, ID>{
 
-    void add(T entity);
+    T add(T entity);
 
-    void update(T entity);
+    T update(T entity);
 
     T delete(ID id);
 
