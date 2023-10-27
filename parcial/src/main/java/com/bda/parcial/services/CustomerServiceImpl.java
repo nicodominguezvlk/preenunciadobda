@@ -16,13 +16,13 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public void add(Customer entity) {
-        this.customerRepository.save(entity);
+    public Customer add(Customer entity) {
+        return this.customerRepository.save(entity);
     }
 
     @Override
-    public void update(Customer entity) {
-        this.customerRepository.save(entity);
+    public Customer update(Customer entity) {
+        return this.customerRepository.save(entity);
     }
 
     @Override
