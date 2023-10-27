@@ -15,15 +15,15 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "OrderID")
-    private long OrderID;
+    private long orderID;
 
     @ManyToOne
     @JoinColumn(name = "CustomerID")
-    private Customer customer;
+    private Customer customerId;
 
     @ManyToOne
     @JoinColumn(name = "EmployeeID")
-    private Employee employee;
+    private Employee employeeId;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "OrderDate")

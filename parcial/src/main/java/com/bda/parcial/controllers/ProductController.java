@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api/product") // http://localhost:8080/api/product
 
 public class ProductController {
-    private ProductService productService;
+    private final ProductService productService;
 
     public ProductController(ProductService productService){
         this.productService = productService;

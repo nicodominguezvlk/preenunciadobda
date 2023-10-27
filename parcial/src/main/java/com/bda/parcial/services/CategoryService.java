@@ -1,7 +1,8 @@
 package com.bda.parcial.services;
 
-import com.bda.parcial.models.Category;
+import com.bda.parcial.dtos.CategoryDTO;
 
-public interface CategoryService extends Service<Category, Long> {
+
+public interface CategoryService extends Service<CategoryDTO, Long> {
 
 }
