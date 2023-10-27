@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/client/company") // http://localhost:8080/api/customer
+@RequestMapping("/api/customer") // http://localhost:8080/api/customer
 public class CustomerController {
 
-    private CustomerService customerService;
+    private final CustomerService customerService;
 
     public CustomerController(CustomerService customerService){
         this.customerService = customerService;
