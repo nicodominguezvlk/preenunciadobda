@@ -3,6 +3,7 @@ package com.bda.parcial.models;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity(name = "Orders")
 @Data
@@ -24,8 +25,9 @@ public class Order {
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "OrderDate")
-    private LocalDateTime orderDate;
+    private Date orderDate;
 
     @Column(name = "RequiredDate")
     private LocalDateTime requiredDate;
