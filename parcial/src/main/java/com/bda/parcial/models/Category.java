@@ -26,6 +26,6 @@ public class Category {
     private byte[] picture;
 
     @OneToMany( fetch = FetchType.LAZY)
-    @JoinColumn(name = "CategoryID")
+    @JoinColumn(name = "ProductID")
     private List<Product> productList;
 }

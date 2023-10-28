@@ -1,6 +1,6 @@
 package com.bda.parcial.controllers;
 
-import com.bda.parcial.models.Product;
+import com.bda.parcial.dtos.ProductDTO;
 import com.bda.parcial.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,14 +17,14 @@ public class ProductController {
         this.productService = productService;
     }
     @GetMapping
-    public ResponseEntity<List<Product>> getAll(){
-        List<Product> values = this.productService.getAll();
+    public ResponseEntity<List<ProductDTO>> getAll(){
+        List<ProductDTO> values = this.productService.getAll();
         return ResponseEntity.ok(values);
     }
 
     @PostMapping
-    public ResponseEntity<Product> add(@RequestBody Product product){
-        Product p = this.productService.add(product);
+    public ResponseEntity<ProductDTO> add(@RequestBody ProductDTO productDto){
+        ProductDTO p = this.productService.add(productDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(p);
     }
 

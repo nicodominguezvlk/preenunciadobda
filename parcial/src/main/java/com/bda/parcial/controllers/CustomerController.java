@@ -1,5 +1,6 @@
 package com.bda.parcial.controllers;
 
+import com.bda.parcial.dtos.CustomerDTO;
 import com.bda.parcial.models.Customer;
 import com.bda.parcial.services.CustomerService;
 import org.springframework.http.HttpStatus;
@@ -19,14 +20,14 @@ public class CustomerController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Customer>> getAll(){
-        List<Customer> values = this.customerService.getAll();
+    public ResponseEntity<List<CustomerDTO>> getAll(){
+        List<CustomerDTO> values = this.customerService.getAll();
         return ResponseEntity.ok(values);
     }
 
     @PostMapping
-    public ResponseEntity<Customer> add(@RequestBody Customer customer){
-        Customer c = this.customerService.add(customer);
+    public ResponseEntity<CustomerDTO> add(@RequestBody CustomerDTO customerDto){
+        CustomerDTO c = this.customerService.add(customerDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(c);
     }
 

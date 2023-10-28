@@ -1,5 +1,7 @@
 package com.bda.parcial.models;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,11 +22,12 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "SupplierID")
+    @JsonBackReference
     private Supplier supplierId;
 
     @ManyToOne
     @JoinColumn(name = "CategoryID")
-    private Supplier categoryId;
+    private Category categoryId;
 
     @Column(name = "QuantityPerUnit")
     private String quantityPerUnit;

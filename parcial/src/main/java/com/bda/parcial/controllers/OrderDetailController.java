@@ -1,5 +1,6 @@
 package com.bda.parcial.controllers;
 
+import com.bda.parcial.dtos.OrderDetailDTO;
 import com.bda.parcial.models.OrderDetail;
 import com.bda.parcial.services.OrderDetailService;
 import org.springframework.http.HttpStatus;
@@ -18,14 +19,14 @@ public class OrderDetailController {
     }
 
     @GetMapping
-    public ResponseEntity<List<OrderDetail>> getAll(){
-        List<OrderDetail> values = this.orderDetailService.getAll();
+    public ResponseEntity<List<OrderDetailDTO>> getAll(){
+        List<OrderDetailDTO> values = this.orderDetailService.getAll();
         return ResponseEntity.ok(values);
     }
 
     @PostMapping
-    public ResponseEntity<OrderDetail> add(@RequestBody OrderDetail orderDetail){
-        OrderDetail od = this.orderDetailService.add(orderDetail);
+    public ResponseEntity<OrderDetailDTO> add(@RequestBody OrderDetailDTO orderDetailDto){
+        OrderDetailDTO od = this.orderDetailService.add(orderDetailDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(od);
     }
 }

@@ -1,12 +1,10 @@
 package com.bda.parcial.controllers;
 
 import com.bda.parcial.dtos.CategoryDTO;
-import com.bda.parcial.models.Category;
 import com.bda.parcial.services.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

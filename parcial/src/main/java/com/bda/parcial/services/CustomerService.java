@@ -1,7 +1,7 @@
 package com.bda.parcial.services;
 
-import com.bda.parcial.models.Customer;
+import com.bda.parcial.dtos.CustomerDTO;
 
-public interface CustomerService extends Service<Customer, Long>{
+public interface CustomerService extends Service<CustomerDTO, Long>{
 
 }

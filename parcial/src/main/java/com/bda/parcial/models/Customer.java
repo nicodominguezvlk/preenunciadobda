@@ -55,6 +55,6 @@ public class Customer {
     @JoinTable(name = "CustomerCustomerDemo",
             joinColumns = @JoinColumn(name ="CustomerID"),
             inverseJoinColumns = @JoinColumn(name = "CustomerTypeID"))
-    private Set<CustomerDemographics> demographics;
+    private List<CustomerDemographics> demographics;
 
 }

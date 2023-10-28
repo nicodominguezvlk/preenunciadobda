@@ -1,6 +1,7 @@
 package com.bda.parcial.services;
 
-import com.bda.parcial.models.Product;
+import com.bda.parcial.dtos.ProductDTO;
 
-public interface ProductService extends Service<Product, Long>{
+
+public interface ProductService extends Service<ProductDTO, Long>{
 }

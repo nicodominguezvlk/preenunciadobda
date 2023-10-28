@@ -1,6 +1,6 @@
 package com.bda.parcial.controllers;
 
-import com.bda.parcial.models.Supplier;
+import com.bda.parcial.dtos.SupplierDTO;
 import com.bda.parcial.services.SupplierService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +19,14 @@ public class SupplierController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Supplier>> getAll(){
-        List<Supplier> values = this.supplierService.getAll();
+    public ResponseEntity<List<SupplierDTO>> getAll(){
+        List<SupplierDTO> values = this.supplierService.getAll();
         return ResponseEntity.ok(values);
     }
 
     @PostMapping
-    public ResponseEntity<Supplier> add(@RequestBody Supplier supplier){
-        Supplier s = this.supplierService.add(supplier);
+    public ResponseEntity<SupplierDTO> add(@RequestBody SupplierDTO supplierDto){
+        SupplierDTO s = this.supplierService.add(supplierDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(s);
     }
 }

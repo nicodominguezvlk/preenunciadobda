@@ -1,5 +1,6 @@
 package com.bda.parcial.controllers;
 
+import com.bda.parcial.dtos.OrderDTO;
 import com.bda.parcial.models.Order;
 import com.bda.parcial.services.OrderService;
 import org.springframework.http.HttpStatus;
@@ -18,14 +19,14 @@ public class OrderController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Order>> getAll(){
-        List<Order> values = this.orderService.getAll();
+    public ResponseEntity<List<OrderDTO>> getAll(){
+        List<OrderDTO> values = this.orderService.getAll();
         return ResponseEntity.ok(values);
     }
 
     @PostMapping
-    public ResponseEntity<Order> add(@RequestBody Order order){
-        Order o = this.orderService.add(order);
+    public ResponseEntity<OrderDTO> add(@RequestBody OrderDTO orderDto){
+        OrderDTO o = this.orderService.add(orderDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(o);
     }
 }

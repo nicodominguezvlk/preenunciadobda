@@ -1,5 +1,7 @@
 package com.bda.parcial.models;
 
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -49,7 +51,8 @@ public class Supplier {
     @Column(name = "HomePage")
     private String homePage;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name ="ProductID")
+   @OneToMany(fetch = FetchType.LAZY)
+   @JoinColumn(name ="ProductID")
+   @JsonManagedReference
     private List<Product> productList;
 }

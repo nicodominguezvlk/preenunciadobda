@@ -26,6 +26,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-community-dialects -->
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
