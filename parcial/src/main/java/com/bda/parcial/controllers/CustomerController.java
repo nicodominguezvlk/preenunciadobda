@@ -31,4 +31,19 @@ public class CustomerController {
         return ResponseEntity.status(HttpStatus.CREATED).body(c);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<CustomerDTO> delete(@PathVariable Long id) {
+        CustomerDTO response = customerService.delete(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<CustomerDTO> update(@PathVariable Long id, @RequestBody CustomerDTO customerDTO) {
+        CustomerDTO updatedCustomer = customerService.update(customerDTO);
+        if (updatedCustomer != null) {
+            return ResponseEntity.ok(updatedCustomer);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

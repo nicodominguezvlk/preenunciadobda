@@ -1,6 +1,7 @@
 package com.bda.parcial.controllers;
 
 import com.bda.parcial.dtos.ProductDTO;
+import com.bda.parcial.dtos.ProductDTO;
 import com.bda.parcial.services.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,4 +29,19 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(p);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<ProductDTO> delete(@PathVariable Long id) {
+        ProductDTO response = productService.delete(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
+        ProductDTO updatedProduct = productService.update(productDTO);
+        if (updatedProduct != null) {
+            return ResponseEntity.ok(updatedProduct);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
