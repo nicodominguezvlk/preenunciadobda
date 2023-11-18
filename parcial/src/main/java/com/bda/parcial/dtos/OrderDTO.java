@@ -17,9 +17,9 @@ public class OrderDTO {
     private long orderID;
     private Customer customerId;
     private Employee employeeId;
-    private Date orderDate;
-    private LocalDateTime requiredDate;
-    private LocalDateTime shippedDate;
+    private String orderDate;
+    private String requiredDate;
+    private String shippedDate;
     private Shipper shipVia;
     private double freight;
     private String shipName;

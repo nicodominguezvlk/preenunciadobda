@@ -25,15 +25,14 @@ public class Order {
     @JoinColumn(name = "EmployeeID")
     private Employee employeeId;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "OrderDate")
-    private Date orderDate;
+    private String orderDate;
 
     @Column(name = "RequiredDate")
-    private LocalDateTime requiredDate;
+    private String requiredDate;
 
     @Column(name = "ShippedDate")
-    private LocalDateTime shippedDate;
+    private String shippedDate;
 
     @ManyToOne
     @JoinColumn(name = "ShipVia")

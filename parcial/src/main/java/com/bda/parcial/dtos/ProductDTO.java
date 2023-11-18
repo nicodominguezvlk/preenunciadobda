@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class ProductDTO {
     private long productId;
     private String productName;
-    private Supplier supplierId;
-    private Category categoryId;
+    private long supplierId;
+    //private Category categoryId;
     private String quantityPerUnit;
     private double unitPrice;
     private int unitsInStock;

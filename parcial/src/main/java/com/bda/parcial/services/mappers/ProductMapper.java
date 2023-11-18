@@ -2,18 +2,27 @@ package com.bda.parcial.services.mappers;
 
 import com.bda.parcial.dtos.ProductDTO;
 import com.bda.parcial.models.Product;
+import com.bda.parcial.services.ShipperService;
+import com.bda.parcial.services.SupplierService;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;
 
 @Service
 public class ProductMapper implements Function<ProductDTO, Product> {
+
+    private final SupplierService supplierService;
+    private final SupplierMapper supplierMapper;
+    public ProductMapper(SupplierService supplierService, SupplierMapper supplierMapper){
+        this.supplierService = supplierService;
+        this.supplierMapper = supplierMapper;
+    }
     public Product apply(ProductDTO productDTO)
     {
         return new Product(productDTO.getProductId(),
                 productDTO.getProductName(),
-                productDTO.getSupplierId(),
-                productDTO.getCategoryId(),
+                supplierMapper.apply(supplierService.getById(productDTO.getSupplierId())),
+                //productDTO.getCategoryId(),
                 productDTO.getQuantityPerUnit(),
                 productDTO.getUnitPrice(),
                 productDTO.getUnitsInStock(),

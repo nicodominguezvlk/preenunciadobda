@@ -51,8 +51,6 @@ public class Supplier {
     @Column(name = "HomePage")
     private String homePage;
 
-   @OneToMany(fetch = FetchType.LAZY)
-   @JoinColumn(name ="ProductID")
-   @JsonManagedReference
+   @OneToMany(mappedBy = "SupplierID")
     private List<Product> productList;
 }
