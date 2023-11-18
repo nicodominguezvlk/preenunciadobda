@@ -24,9 +24,9 @@ public class Product {
     @JoinColumn(name = "SupplierID")
     private Supplier SupplierID;
 
-//    @ManyToOne
-//    @JoinColumn(name = "CategoryID")
-//    private Category categoryId;
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private Category categoryId;
 
     @Column(name = "QuantityPerUnit")
     private String quantityPerUnit;

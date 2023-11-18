@@ -13,7 +13,7 @@ public class ProductDTO {
     private long productId;
     private String productName;
     private long supplierId;
-    //private Category categoryId;
+    private long categoryId;
     private String quantityPerUnit;
     private double unitPrice;
     private int unitsInStock;
